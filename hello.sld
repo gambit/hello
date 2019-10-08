@@ -12,4 +12,5 @@
 
     (define (salut name) (exclaim "bonjour " name))
 
-    (salut "le monde")))
+    ;; it is best for a library to not have side-effects...
+    #;(salut "le monde")))
