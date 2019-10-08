@@ -2,10 +2,14 @@
 
   (import (scheme base) (scheme write))
 
-  (export hi)
+  (export hi salut)
 
   (begin
 
-    (define (hi msg) (display "hello ") (display msg) (display "!\n"))
+    (define (exclaim msg1 msg2) (display msg1) (display msg2) (display "!\n"))
 
-    (hi "world")))
+    (define (hi name) (exclaim "hello " name))
+
+    (define (salut name) (exclaim "bonjour " name))
+
+    (salut "le monde")))
