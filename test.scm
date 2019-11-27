@@ -1,9 +1,9 @@
 (define-library (github.com/gambit/hello test)
 
-  (import (.. hello)) ;; relative import (preserves the version)
-  (import (_test))    ;; for check-equal? and check-tail-exn
-  (import (gambit))   ;; for lambda, with-output-to-string, and
-                      ;; wrong-number-of-arguments-exception?
+  (import (..))     ;; relative import of hello (preserves the version)
+  (import (_test))  ;; for check-equal? and check-tail-exn
+  (import (gambit)) ;; for lambda, with-output-to-string, and
+                    ;; wrong-number-of-arguments-exception?
 
   (begin
 
