@@ -14,7 +14,7 @@
                 (with-output-to-string (lambda () (salut "hi"))))
 
     (test-error-tail wrong-number-of-arguments-exception?
-                     (lambda () (hi)))
+                     ((lambda () (hi))))
 
     (test-error-tail wrong-number-of-arguments-exception?
-                     (lambda () (hi "foo" "bar")))))
+                     ((lambda () (hi "foo" "bar"))))))
