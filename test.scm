@@ -1,20 +1,20 @@
 (define-library (github.com/gambit/hello test)
 
   (import (..))     ;; relative import of hello (preserves the version)
-  (import (_test))  ;; for check-equal? and check-tail-exn
+  (import (_test))  ;; for test-equal? and test-error-tail
   (import (gambit)) ;; for lambda, with-output-to-string, and
                     ;; wrong-number-of-arguments-exception?
 
   (begin
 
-    (check-equal? (with-output-to-string (lambda () (hi "you")))
-                  "hello you!\n")
+    (test-equal? "hello you!\n"
+                 (with-output-to-string (lambda () (hi "you"))))
 
-    (check-equal? (with-output-to-string (lambda () (salut "hi")))
-                  "bonjour hi!\n")
+    (test-equal? "bonjour hi!\n"
+                 (with-output-to-string (lambda () (salut "hi"))))
 
-    (check-tail-exn wrong-number-of-arguments-exception?
-                    (lambda () (hi)))
+    (test-error-tail wrong-number-of-arguments-exception?
+                     (lambda () (hi)))
 
-    (check-tail-exn wrong-number-of-arguments-exception?
-                    (lambda () (hi "foo" "bar")))))
+    (test-error-tail wrong-number-of-arguments-exception?
+                     (lambda () (hi "foo" "bar")))))
