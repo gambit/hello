@@ -1,0 +1,63 @@
+name: gambit/hello - CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  Windows-msvc:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: daviwil/download-gambit@v1
+      with:
+        artifact-token: ${{ secrets.ARTIFACT_TOKEN }}
+
+    - name: Run Tests
+      run: gsi test.scm
+
+  Windows-mingw:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: daviwil/download-gambit@v1
+      with:
+        os: win-mingw
+        artifact-token: ${{ secrets.ARTIFACT_TOKEN }}
+
+    - name: Run Tests
+      run: gsi test.scm
+
+  Linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: daviwil/download-gambit@v1
+      with:
+        artifact-token: ${{ secrets.ARTIFACT_TOKEN }}
+
+    - name: Run Tests
+      run: gsi test.scm
+
+  MacOS:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: daviwil/download-gambit@v1
+      with:
+        artifact-token: ${{ secrets.ARTIFACT_TOKEN }}
+
+    - name: Run Tests
+      run: gsi test.scm
