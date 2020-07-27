@@ -1,2 +1,2 @@
 # hello
-R7RS library example
+Gambit library example
