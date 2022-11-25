@@ -1,5 +1,3 @@
-#!/usr/bin/env gsi-script -:=
-
 (define-library (hello)
 
   (import (scheme base) (scheme write))
